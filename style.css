@@ -104,6 +104,10 @@ section main {
     background-color: #202020;
 }
 
+.field::-webkit-scrollbar-corner {
+  background-color: #00000000
+}
+
 .dots-cnt {
     display: flex;
     flex-direction: column;
