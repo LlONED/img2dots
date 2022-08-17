@@ -6,7 +6,7 @@
 html {
     height: 100%;
     width: 100%;
-    font-family:  sans-serif;
+    font-family: sans-serif;
 }
 
 body {
@@ -21,11 +21,11 @@ body {
 
 #image,
 canvas {
-  display: none;
+    display: none;
 }
 
-img{
-    width:100%;
+img {
+    width: 100%;
     max-width: 200px;
 }
 
@@ -34,16 +34,16 @@ input[type="file"] {
 }
 
 section {
-  height: 800px;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  background-color: #1f1f1f;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+    height: 800px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 header>label {
@@ -73,9 +73,9 @@ section header {
 }
 
 section main {
-  box-sizing: border-box;
-  padding: 0px 10px 10px 10px;
-  height: 100%;
+    box-sizing: border-box;
+    padding: 0px 10px 10px 10px;
+    height: 100%;
 }
 
 .field {
@@ -94,6 +94,7 @@ section main {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+
 .field::-webkit-scrollbar {
     width: 5px;
     background-color: #07070700;
@@ -105,7 +106,7 @@ section main {
 }
 
 .field::-webkit-scrollbar-corner {
-  background-color: #00000000
+    background-color: #00000000
 }
 
 .dots-cnt {
@@ -114,6 +115,7 @@ section main {
 }
 
 .range {
+    user-select: none;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -121,6 +123,11 @@ section main {
 
 .range label {
     margin-left: 10px;
+}
+
+.range>div {
+    display: flex;
+    justify-content: space-around;
 }
 
 .logo {
