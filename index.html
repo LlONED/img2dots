@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>IMG2Dots</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>IMG2Dots</title>
 </head>
+
 <body>
-    <section>
-      <header>
-        <div class="item"><a href="https://discord.gg/D2DSthMVme" target="_blank" class="logo">IMG2DOTS</a></div>
-        <div class="item range">
-          <div>
-             <input type="range" id="sensitivity" min="50" max="500" value="383">
-             <label for="sensitivity">sensitivity: 383</label>
-          </div>
-          <div>
-            <input type="range" id="maxwidth" min="10" max="500" value="100">
-            <label for="maxwidth">maxWidth: 100</label>
-         </div>
-      </div>
-        <input type="file" id="imageFile" accept="image/*">
-        <label class="item" for="imageFile">upload image</label>
-      </header>
-      <main>
-        <div class="field">
-          <div class="dots-cnt"></div>
+  <section>
+    <header>
+      <div class="item"><a href="https://discord.gg/D2DSthMVme" target="_blank" class="logo">IMG2DOTS</a></div>
+      <div class="item range">
+        <div>
+          <input type="range" id="sensitivity" min="50" max="800" value="383">
+          <label for="sensitivity">sensitivity: 383</label>
         </div>
-      </main>
-    </section>
-    
-    <img id="image">
-    <canvas></canvas>
-    <script src="./index.js"></script>
+        <div>
+          <input type="range" id="maxwidth" min="10" max="500" value="100">
+          <label for="maxwidth">maxWidth: 100</label>
+        </div>
+        <div id="radioCnt">
+          <label>
+            <input type="radio" name="dots-type" value="6" checked>
+            6-dots
+          </label>
+          <label>
+            <input type="radio" name="dots-type" value="8">
+            8-dots
+          </label>
+          <label>
+            <input type="checkbox" id="invert">
+            invert
+          </label>
+        </div>
+      </div>
+      <label class="item">
+        <input type="file" id="imageFile" accept="image/*">
+        upload image
+      </label>
+    </header>
+    <main>
+      <div class="field">
+        <div class="dots-cnt"></div>
+      </div>
+    </main>
+  </section>
+
+  <img id="image">
+  <canvas></canvas>
+  <script src="./index.js"></script>
 </body>
+
 </html>
