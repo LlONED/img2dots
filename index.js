@@ -465,7 +465,7 @@ function createDots() {
 }
 
 {
-    const input = $('#radioCnt'); 5
+    const input = $('#radioCnt');
 
     input.addEventListener('click', function (e) {
         if (!e.target.closest('input')) return;
