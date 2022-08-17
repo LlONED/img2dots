@@ -74,7 +74,7 @@ const dots6 = {
 }
 
 const dots8 = {
-    '00000000': '⠀',
+    '00000000': "⠀",
     '00000001': "⢀",
     '00000010': "⡀",
     '00000011': "⣀",
@@ -353,7 +353,7 @@ function resolutionAdaptation(width, height, maxWidth) {
     }
 }
 
-function getDotsHTML(MonochromeImage = [], type = 6) {
+function getDotsHTML(MonochromeImage = [], { type = 6, isFill = false }) {
     let html = '';
     for (let y = 0; y < MonochromeImage.length; y += 3) {
         html += '<span>';
@@ -371,11 +371,12 @@ function getDotsHTML(MonochromeImage = [], type = 6) {
                 binaryKey = binaryKey
                     + (MonochromeImage[y + 3] !== undefined ? (MonochromeImage[y + 3][x] || 0) : 0).toString()
                     + (MonochromeImage[y + 3] !== undefined ? (MonochromeImage[y + 3][x + 1] || 0) : 0).toString();
-
+                if (isFill && binaryKey === '00000000') binaryKey = '00000001';
                 html += dots8[binaryKey];
                 continue;
             }
 
+            if (isFill && binaryKey === '000000') binaryKey = '000001';
             html += dots6[binaryKey];
         }
         html += '</span>';
@@ -384,7 +385,7 @@ function getDotsHTML(MonochromeImage = [], type = 6) {
     return html;
 }
 
-function getMonochromeImage(imgData = [], width = 0, isInvert = false, sensitivity = 383) {
+function getMonochromeImage(imgData = [], width = 0, { isInvert = false, sensitivity = 383 }) {
     let MonochromeImage = [];
     let j = 0;
     for (i = 0; i < imgData.data.length; i += 4) {
@@ -416,6 +417,7 @@ function createDots() {
     const img = $('#image');
     const dotsType = +getRadioValue($('input[type="radio"][name="dots-type"]', true));
     const isInvert = $('#invert').checked;
+    const isFill = $('#fill').checked;
     const sensitivity = +$('#sensitivity').value;
     const maxWidth = +$('#maxwidth').value;
     const resolution = resolutionAdaptation(img.width, img.height, maxWidth);
@@ -427,8 +429,8 @@ function createDots() {
 
     ctx.drawImage(img, 0, 0, resolution.width, resolution.height);
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const MonochromeImage = getMonochromeImage(imgData, canvas.width, isInvert, sensitivity);
-    let dotsHtml = getDotsHTML(MonochromeImage, dotsType);
+    const MonochromeImage = getMonochromeImage(imgData, canvas.width, { isInvert, sensitivity });
+    let dotsHtml = getDotsHTML(MonochromeImage, { type: dotsType, isFill });
 
     $('.dots-cnt').innerHTML = dotsHtml;
 };
