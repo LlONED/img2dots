@@ -105,4 +105,4 @@ You can adjust the sensitivity and maximum width of the image.
 
 ___
 
-Join the [discord](https://discord.gg/D2DSthMVme) server to follow the updates.
+Join the [discord](https://discord.gg/GXXcRmuqAT) server to follow the updates.
